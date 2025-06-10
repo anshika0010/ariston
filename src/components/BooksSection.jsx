@@ -34,13 +34,13 @@ export default function BooksSection() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
         <div>
           <button className="about-btn mb-4 px-6"> Books </button>
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4 text-[#0B0C58]">
             Our Books
           </h2>
         </div>
         <button
           variant="outline"
-          className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-full mt-4 sm:mt-0"
+          className="text-[#0401A5] hover:bg-blue-500 bg-white px-5 rounded-2xl border py-2 font-semibold"
         >
           View More
         </button>
