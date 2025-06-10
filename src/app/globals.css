@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --btncolor: #161752;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-link::after {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 2px;
+  left: 0px;
+  bottom: 0px;
+  transition: all 0.6s;
+  background-color: var(--btncolor);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--btncolor);
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Expand to 100% on hover */
+}
+
+.btn-trans {
+  border: 1px solid #ccc;
+  padding: 5px 15px;
+  transition: all 0.7s;
+}
+
+.btn-trans:hover {
+  background-color: var(--btncolor);
+  color: white;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart > span {
+  position: absolute;
+  background-color: var(--btncolor);
+  /* padding: 5px; */
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  right: -2px;
+  top: -2px;
+}
+
+.heading-color {
+  color: var(--btncolor);
+}
+
+.btn {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.5s;
+}
+
+.about-btn {
+  background: #f7f7f7;
+  background: linear-gradient(
+    90deg,
+    rgb(167, 164, 190) 0%,
+    rgb(126, 128, 176) 50%,
+    rgb(115, 117, 185) 100%
+  );
+  padding: 7px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-color: var(--btncolor);
+  color: white;
+}
