@@ -201,44 +201,6 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-
-        {/* FAQ Section */}
-        <section className="max-w-4xl mx-auto px-4 pb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
-            Frequently
-            <br />
-            Asked Questions
-          </h2>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg">
-                <div className="p-0">
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
-                  >
-                    <span className="font-medium text-gray-900">{faq}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-gray-500 transition-transform ${
-                        openFaq === index ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {openFaq === index && (
-                    <div className="px-6 pb-6">
-                      <p className="text-gray-600">
-                        This is where the answer to the question would appear.
-                        Each FAQ item can be expanded to show detailed
-                        information about our services and policies.
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
       <Footer />
     </>

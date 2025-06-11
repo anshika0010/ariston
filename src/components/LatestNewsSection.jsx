@@ -29,7 +29,7 @@ export default function LatestNewsSection() {
   ];
 
   return (
-    <div className="bg-gray-50 py-8 px-6 sm:px-6 lg:px-8">
+    <div className="bg-white py-8 px-6 mb-12 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12">
           {/* Left Section - Latest Events and News */}

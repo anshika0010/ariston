@@ -105,23 +105,20 @@ export default function Navbar() {
               <Link href="/about-us" className="text-sm text-gray-600 nav-link">
                 About Us
               </Link>
-              <Link href="/labs" className="text-sm text-gray-600 nav-link">
+              <Link href="/journals" className="text-sm text-gray-600 nav-link">
                 Journals
               </Link>
 
-              <Link href="/gallery" className="text-sm text-gray-600 nav-link">
+              <Link href="/books" className="text-sm text-gray-600 nav-link">
                 Books
               </Link>
               <Link
-                href="/contact-us"
+                href="news-and-events"
                 className="text-sm text-gray-600 nav-link"
               >
                 News and Events
               </Link>
-              <Link
-                href="/contact-us"
-                className="text-sm text-gray-600 nav-link"
-              >
+              <Link href="services" className="text-sm text-gray-600 nav-link">
                 Our Services
               </Link>
             </div>
