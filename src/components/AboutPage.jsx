@@ -17,7 +17,7 @@ export default function AboutPage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-8 py-12">
+      <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-[#0B0C58] mb-3 leading-tight">
@@ -36,7 +36,7 @@ export default function AboutPage() {
         </div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Image 1 - Library collaboration */}
           <div className="rounded-lg overflow-hidden shadow-lg">
             <Image
@@ -49,26 +49,22 @@ export default function AboutPage() {
           </div>
 
           {/* Image 2 - Computer work */}
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={image1}
-              alt="Person working at a computer desk with monitor"
-              width={300}
-              height={200}
-              className="w-full h-80 object-cover"
-            />
-          </div>
+          <Image
+            src={image1}
+            alt="Person working at a computer desk with monitor"
+            width={300}
+            height={400}
+            className="w-full h-56 object-cover rounded-lg mt-24"
+          />
 
           {/* Image 3 - Laptop work */}
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={image2}
-              alt="Person with glasses working on laptop wearing patterned sweater"
-              width={300}
-              height={400}
-              className="w-full h-80 object-cover"
-            />
-          </div>
+          <Image
+            src={image2}
+            alt="Person working at a computer desk with monitor"
+            width={300}
+            height={400}
+            className="w-full h-56 object-cover rounded-lg mt-24"
+          />
 
           {/* Image 4 - Team collaboration */}
           <div className="rounded-lg overflow-hidden shadow-lg">
