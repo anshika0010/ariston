@@ -12,6 +12,7 @@ import Footer from "../components/Footer";
 import BooksSection from "../components/BooksSection";
 import ArticlesSection from "../components/ArticlesSection";
 import JournalsSection from "../components/JournalsSection";
+import LatestNewsSection from "../components/LatestNewsSection";
 
 const Home = () => {
   return (
@@ -131,7 +132,7 @@ const Home = () => {
       <JournalsSection />
       <BooksSection />
       <ArticlesSection />
-
+      <LatestNewsSection />
       <Footer />
     </>
   );
