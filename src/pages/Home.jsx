@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import Image from "next/image";
 import React from "react";
 import headerImg from "../images/header.png";
@@ -8,7 +7,6 @@ import iconImg3 from "../images/aboutsection2.png";
 import iconImg4 from "../images/aboutsection3.png";
 import iconImg5 from "../images/aboutsection4.png";
 import Link from "next/link";
-import Footer from "../components/Footer";
 import BooksSection from "../components/BooksSection";
 import ArticlesSection from "../components/ArticlesSection";
 import JournalsSection from "../components/JournalsSection";
@@ -17,7 +15,6 @@ import LatestNewsSection from "../components/LatestNewsSection";
 const Home = () => {
   return (
     <>
-      <Navbar />
       <div className="bg-gray-100  px-6">
         <section className="header-section mt-16 py-6 grid grid-cols-1 md:grid-cols-2 container mx-auto px-2 md:px-6 relative">
           <div className="flex justify-center items-center flex-col">
@@ -133,7 +130,6 @@ const Home = () => {
       <BooksSection />
       <ArticlesSection />
       <LatestNewsSection />
-      <Footer />
     </>
   );
 };

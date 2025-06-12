@@ -1,9 +1,12 @@
+// app/layout.js
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const inter = Inter({
-  subsets: ["latin"], // Specify the necessary subsets (e.g., 'latin' for English characters)
-  display: "swap", // Recommended for preventing layout shifts
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -14,7 +17,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

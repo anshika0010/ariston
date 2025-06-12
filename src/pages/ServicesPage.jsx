@@ -1,12 +1,14 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import WhyChooseUs from "../components/WhyChooseUs";
+import OurServices from "../components/OurServices";
+import ServicesHeroSection from "../components/ServicesHeroSection";
 import React from "react";
 
 const ServicesPage = () => {
   return (
     <div>
-      <Navbar />
-      <Footer />
+      <ServicesHeroSection />
+      <OurServices />
+      <WhyChooseUs />
     </div>
   );
 };

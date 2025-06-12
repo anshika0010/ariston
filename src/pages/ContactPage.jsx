@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { ChevronDown, Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -23,7 +21,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-white">
         {/* Header Section */}
         <section className="text-center py-16 px-4">
@@ -202,7 +199,6 @@ export default function ContactPage() {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 }

@@ -63,7 +63,7 @@ const JournalsSection = () => {
                   <div className="flex justify-center">
                     <Image
                       src={book.image}
-                      alt={book.title}
+                      alt={book.title || "Book cover image"}
                       width={0} // required for Next.js but won't control actual size
                       height={0}
                       className="w-[250px] h-[340px] rounded-md shadow-lg object-conatin"
