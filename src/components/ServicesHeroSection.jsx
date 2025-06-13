@@ -1,9 +1,7 @@
 "use client";
 
-import { Mail } from "lucide-react";
 import Image from "next/image";
 import image5 from "../images/Image5.jpg";
-import iconImg from "../images/SVG.png";
 
 const ServicesHeroSection = () => {
   return (
