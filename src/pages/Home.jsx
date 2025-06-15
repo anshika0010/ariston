@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import headerImg from "../images/header.png";
@@ -11,16 +12,23 @@ import BooksSection from "../components/BooksSection";
 import ArticlesSection from "../components/ArticlesSection";
 import JournalsSection from "../components/JournalsSection";
 import LatestNewsSection from "../components/LatestNewsSection";
+import TypewriterHeading from "../components/TypeWritterHeading";
+import { motion } from "framer-motion";
 
 const Home = () => {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <>
       <div className="bg-gray-100  px-6">
         <section className="header-section mt-16 py-6 grid grid-cols-1 md:grid-cols-2 container mx-auto px-2 md:px-6 relative">
           <div className="flex justify-center items-center flex-col">
-            <h1 className="text-center md:text-start text-3xl md:text-6xl font-bold pr-0 md:pr-8 heading-color">
+            {/* <h1 className="text-center md:text-start text-3xl md:text-6xl font-bold pr-0 md:pr-8 heading-color">
               Publishing Excellence, Inspiring Progress
-            </h1>
+            </h1> */}
+            <TypewriterHeading />
             <p className="text-gray-500 mt-4 text-xs  md:text-sm text-center md:text-start">
               Crafting High-Quality Research dedicated to advancing the
               frontiers of knowledge through high-quality scientific publishing.
@@ -39,13 +47,13 @@ const Home = () => {
           />
         </section>
       </div>
-      <section className="grid grid-cols-1 md:grid-cols-2 container mx-auto px-2 md:px-6 relative mt-32">
-        <div className="pr-0 ">
-          <button className="about-btn mb-4">ABOUT US</button>
+      <section className="grid grid-cols-1 md:grid-cols-2 container mx-auto px-2 md:px-6 relative mt-32 my-12">
+        <div className="pr-7 ">
+          <button className="about-btn mb-4 text-white">ABOUT US</button>
           <h1 className="heading-color text-xl md:text-4xl font-bold">
             Welcome to  Ariston Publications
           </h1>
-          <p className="text-gray-500 mt-4">
+          <p className="text-gray-500 mt-4 ">
             Ariston Publications is committed to advancing the frontiers of
             knowledge through high-quality scientific publishing. Our mission is
             to provide a robust platform for researchers, scholars, and
@@ -61,69 +69,37 @@ const Home = () => {
             foster collaboration, and expand the boundaries of human
             understanding.
           </p>
-          <div className="mt-4">
-            <Link href={"/about-us"} className="btn text-gray-700 shadow">
+          <div className="mt-9">
+            <Link
+              href={"/about-us"}
+              className="btn text-[#0b0c58] text-bold shadow"
+            >
               See More
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 container gap-4">
-          <div className="bg-gray-100 rounded-lg border border-gray-400 shadow p-4">
-            <Image
-              className="w-[auto] h-[50px] mb-4"
-              src={iconImg2}
-              alt="icon"
-            />
-            <h1 className="heading-color text-xl font-bold">
-              Empowering Discovery:
-            </h1>
-            <p className="text-xs md:text-sm mt-1 text-gray-500">
-              Ariston Publications is dedicated to fostering groundbreaking
-              research across diverse disciplines.
-            </p>
-          </div>
-          <div className="bg-gray-100 rounded-lg border border-gray-400 shadow p-4">
-            <Image
-              className="w-[auto] h-[50px] mb-4"
-              src={iconImg3}
-              alt="icon"
-            />
-            <h1 className="heading-color text-xl font-bold">
-              Empowering Discovery:
-            </h1>
-            <p className="text-xs md:text-sm mt-1 text-gray-500">
-              Ariston Publications is dedicated to fostering groundbreaking
-              research across diverse disciplines.
-            </p>
-          </div>
-          <div className="bg-gray-100 rounded-lg border border-gray-400 shadow p-4">
-            <Image
-              className="w-[auto] h-[50px] mb-4"
-              src={iconImg4}
-              alt="icon"
-            />
-            <h1 className="heading-color text-xl font-bold">
-              Empowering Discovery:
-            </h1>
-            <p className="text-xs md:text-sm mt-1 text-gray-500">
-              Ariston Publications is dedicated to fostering groundbreaking
-              research across diverse disciplines.
-            </p>
-          </div>
-          <div className="bg-gray-100 rounded-lg border border-gray-400 shadow p-4">
-            <Image
-              className="w-[auto] h-[50px] mb-4"
-              src={iconImg5}
-              alt="icon"
-            />
-            <h1 className="heading-color text-xl font-bold">
-              Empowering Discovery:
-            </h1>
-            <p className="text-xs md:text-sm mt-1 text-gray-500">
-              Ariston Publications is dedicated to fostering groundbreaking
-              research across diverse disciplines.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 container gap-7">
+          {[iconImg2, iconImg3, iconImg4, iconImg5].map((img, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              initial="hidden"
+              whileInView="visible"
+              variants={cardVariants}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gray-100 rounded-lg border border-gray-400 shadow p-4 hover:border-[#0b0c58] transition-colors duration-300"
+            >
+              <Image className="w-auto h-[50px] mb-4" src={img} alt="icon" />
+              <h1 className="heading-color text-xl font-bold">
+                Empowering Discovery:
+              </h1>
+              <p className="text-xs md:text-sm mt-1 text-gray-500">
+                Ariston Publications is dedicated to fostering groundbreaking
+                research across diverse disciplines.
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
       <JournalsSection />

@@ -39,14 +39,14 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-4 pb-20">
+    <section className="max-w-6xl mx-auto px-4 pb-20 my-7">
       <div className="flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Intro Section */}
-        <div className="flex-1 mt-7">
+        <div className="flex-1 mt-12">
           <button className="about-btn mb-4 px-6 py-2 bg-[#0B0C58] text-white rounded-full text-sm font-semibold">
             Faqs
           </button>
-          <h2 className="text-3xl font-bold text-[#0B0C58] mb-10 leading-tight">
+          <h2 className="text-5xl font-bold text-[#0B0C58] mb-10 leading-tight">
             Frequently
             <br />
             Asked Questions

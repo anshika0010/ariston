@@ -1,7 +1,10 @@
 "use client";
-
 import { useState } from "react";
 import { ChevronDown, Phone, Mail, MapPin } from "lucide-react";
+import ContactHeroSection from "../components/ContactHeroSection";
+import FaqSection from "../components/FaqSection";
+import Image20 from "../images/Image20.jpg";
+import Image21 from "../images/Image21.jpg";
 import Image from "next/image";
 
 export default function ContactPage() {
@@ -21,183 +24,192 @@ export default function ContactPage() {
 
   return (
     <>
+      <ContactHeroSection />
       <div className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="text-center py-16 px-4">
-          <p className="text-sm text-gray-500 mb-2">CONTACT US</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get in touch
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            We'd love to hear from you. Send us a message and we'll respond as
-            soon as possible.
-          </p>
-          <div className="w-4 h-4 bg-blue-600 rotate-45 mx-auto"></div>
-        </section>
 
-        {/* Contact Form Section */}
-        <section className="max-w-6xl mx-auto px-4 mb-20">
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="grid md:grid-cols-5 gap-0">
-              {/* Contact Info Sidebar */}
-              <div className="md:col-span-2 bg-gradient-to-br from-purple-100 to-blue-100 p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8">
-                  Contact Us
+        <section className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-20 rounded-3xl">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left Info Panel */}
+            <div className="bg-indigo-100 rounded-2xl p-8 space-y-6 text-[#0B0C58]">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl">📄</div>
+                <h2 className="text-xl font-bold">General Inquiries:</h2>
+              </div>
+              <p>
+                Email:{" "}
+                <a
+                  href="mailto:info@aristonpubs.com"
+                  className="text-black font-medium underline"
+                >
+                  info@aristonpubs.com
+                </a>
+              </p>
+
+              <div>
+                <h2 className="text-xl font-bold mt-6">
+                  Manuscript Submission Support:
                 </h2>
+                <p>
+                  Email:{" "}
+                  <a
+                    href="mailto:submissions@aristonpubs.com"
+                    className="text-black font-medium underline"
+                  >
+                    submissions@aristonpubs.com
+                  </a>
+                </p>
+              </div>
 
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">
-                        Our Phone number
-                      </p>
-                      <p className="text-gray-600">+1 234 567 8900</p>
-                    </div>
+              <hr className="my-6 border-gray-300" />
+
+              <div>
+                <h2 className="text-xl font-bold mb-4">Give us a call</h2>
+                <div className="space-y-3 text-sm text-gray-800">
+                  <div className="flex items-center space-x-2">
+                    <Phone className="w-4 h-4 text-[#0B0C58]" />
+                    <span>614-634-5305</span>
                   </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">
-                        Manuscript Submission Support
-                      </p>
-                      <p className="text-gray-600">
-                        manuscripts@artisanpub.com
-                      </p>
-                    </div>
+                  <div className="flex items-center space-x-2">
+                    <Mail className="w-4 h-4 text-[#0B0C58]" />
+                    <span>contact@aristonpubs.com</span>
                   </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">
-                        Give us a call
-                      </p>
-                      <p className="text-gray-600">+1 234 567 8900</p>
-                      <p className="text-gray-600">
-                        123 Publishing Street, Book City
-                      </p>
-                      <p className="text-gray-600">New York, NY 10001, USA</p>
-                    </div>
+                  <div className="flex items-start space-x-2">
+                    <MapPin className="w-4 h-4 mt-0.5 text-[#0B0C58]" />
+                    <span>
+                      Ariston Publications
+                      <br />
+                      3167 Riverview Place
+                      <br />
+                      Columbus, OH 43202, USA
+                    </span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Contact Form */}
-              <div className="md:col-span-3 p-8">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Your name"
-                        className="w-full border border-gray-300 rounded-md p-2"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone number
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Your phone number"
-                        className="w-full border border-gray-300 rounded-md p-2"
-                      />
-                    </div>
-                  </div>
-
+            {/* Right Form Panel */}
+            <div className="bg-gray-100 rounded-2xl">
+              <h2 className="text-3xl font-bold text-[#0B0C58] mb-8">
+                Contact Us
+              </h2>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email address
+                    <label className="block text-sm font-semibold text-[#0B0C58] mb-1">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Full name"
+                      className="w-full rounded-full px-4 py-3 border border-gray-300 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-[#0B0C58] mb-1">
+                      Affiliation
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Affiliation"
+                      className="w-full rounded-full px-4 py-3 border border-gray-300 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-[#0B0C58] mb-1">
+                      Email
                     </label>
                     <input
                       type="email"
-                      placeholder="Your email address"
-                      className="w-full border border-gray-300 rounded-md p-2"
+                      placeholder="Email address"
+                      className="w-full rounded-full px-4 py-3 border border-gray-300 focus:outline-none"
                     />
                   </div>
-
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
+                    <label className="block text-sm font-semibold text-[#0B0C58] mb-1">
+                      Phone number
                     </label>
-                    <textarea
-                      placeholder="Write your message here..."
-                      className="w-full h-32 resize-none border border-gray-300 rounded-md p-2"
-                    ></textarea>
+                    <input
+                      type="tel"
+                      placeholder="Phone number"
+                      className="w-full rounded-full px-4 py-3 border border-gray-300 focus:outline-none"
+                    />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium"
-                  >
-                    Send message
-                  </button>
-                </form>
-              </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#0B0C58] mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    placeholder="Example Text"
+                    rows="4"
+                    className="w-full rounded-xl px-4 py-3 border border-gray-300 resize-none focus:outline-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-blue-800 text-white font-medium py-3 px-8 rounded-full w-full hover:bg-blue-900 transition"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </section>
-
-        {/* Dear Authors Section */}
-        <section className="max-w-6xl mx-auto px-4 mb-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-square rounded-lg overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=200&width=200"
-                    alt="Professional author"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+        <section className="bg-white py-16 px-6 sm:px-10 lg:px-24">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+            {/* Images Section */}
+            <div className="flex flex-col lg:flex-row gap-6 lg:h-[500px]">
+              <div className="flex-1 rounded-2xl overflow-hidden shadow-lg h-full">
+                <Image
+                  src={Image20}
+                  alt="Older gentleman with glasses reading a book in library"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="space-y-4 pt-8">
-                <div className="aspect-square rounded-lg overflow-hidden">
-                  <Image
-                    src="/placeholder.svg?height=200&width=200"
-                    alt="Professional customer"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="flex-1 rounded-2xl overflow-hidden shadow-lg h-full">
+                <Image
+                  src={Image21}
+                  alt="Young man working with books in library"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Dear Authors
-                <br />
-                And Customers
+            {/* Text Section */}
+            <div className="max-w-xl text-center lg:text-left">
+              <div className="mb-4">
+                <span className="inline-block about-btn text-white text-xs font-semibold px-4 py-1 rounded-full tracking-wider">
+                  THANK YOU
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0B0C58] leading-tight mb-4">
+                Dear Authors <br /> And Customers
               </h2>
-              <p className="text-gray-600 leading-relaxed">
-                Thank you for your interest in Artisan Publications. Whether
-                you're an aspiring author looking to share your story with the
-                world, or a reader seeking your next great read, we're here to
-                serve you with dedication and excellence.
-              </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
-                Our dedicated team is committed to providing quality service to
-                help bring your literary dreams to life. We believe every story
-                deserves to be told, and every reader deserves access to
-                exceptional literature.
+
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                <span className="text-[#0B0C58] font-semibold">Thank you</span>{" "}
+                for your interest in Ariston Publications. Whether you have
+                questions about submitting a manuscript, inquiries about our
+                publications, or simply wish to provide feedback, we’re here to
+                assist you. Our dedicated team is committed to providing prompt
+                and helpful assistance to all inquiries. We value your feedback
+                and strive to ensure a seamless experience for all authors and
+                customers. <br />
+                Thank you for choosing{" "}
+                <span className="font-medium">Ariston Publications</span>.
               </p>
             </div>
           </div>
         </section>
+        <FaqSection />
       </div>
     </>
   );

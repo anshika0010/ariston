@@ -38,12 +38,15 @@ const books = [
 const Journals = () => {
   return (
     <>
-      <section className="py-16 px-6 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 px-6 sm:px-6 lg:px-8 max-w-7xl mx-auto my-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
           <div>
-            <button className="about-btn mb-4 px-6 "> Our Journals </button>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4 text-[#0B0C58]">
+            <button className="about-btn mb-4 px-6 text-white ">
+              {" "}
+              Our Journals{" "}
+            </button>
+            <h2 className="text-3xl sm:text-4xl m-4 font-bold text-navy-900 mb-4 text-[#0B0C58]">
               Our Popular Journals
             </h2>
           </div>
@@ -52,7 +55,7 @@ const Journals = () => {
         {/* Books Grid */}
         <div className="relative">
           {/* Books Container */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {books.map((book) => (
               <Link href="/journal-page" key={book.id}>
                 <div className="group cursor-pointer">

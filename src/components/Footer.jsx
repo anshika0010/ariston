@@ -1,3 +1,4 @@
+"use client";
 import { Mail, MapPin } from "lucide-react";
 import facebook from "../images/facebook.png";
 import twitter from "../images/twitter.png";
@@ -7,22 +8,21 @@ import logo2 from "../images/logo2.png";
 import logo from "../images/logo.png";
 import logo3 from "../images/logo3.png";
 import Image from "next/image";
+import Image2 from "../images/footerbgimage.jpeg";
 
 export default function Footer() {
   return (
-    <div className="w-full relative pt-[250px]">
+    <div className="w-full">
       {/* Newsletter Subscription Section */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/3 bg-blue-950 px-4 py-4 md:py-10 rounded-2xl w-5/6">
+      {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/3 bg-blue-950 px-4 py-4 md:py-10 rounded-2xl w-5/6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            {/* Left Content */}
             <div className="flex-1 text-center lg:text-left">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8 leading-tight mx-10">
                 Subscribe To Get Information, Latest News And Other Interesting
                 Events!
               </h2>
 
-              {/* Email Subscription Form */}
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-8">
                 <input
                   type="email"
@@ -35,10 +35,8 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Right Logo */}
             <div className="flex-shrink-0">
               <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center">
-                {/* Ariston Publications Logo */}
                 <div className="text-white text-center">
                   <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                     <Image
@@ -53,10 +51,33 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div
+        className=" px-4 py-4 md:py-10  object-cover "
+        style={{ backgroundImage: `url(${Image2.src})` }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex-1 text-center lg:text-left">
+            <h2 className="text-xl md:text-xl lg:text-xl font-bold text-white mb-6 lg:mb-8 leading-tight mx-10">
+              Subscribe To Get Information, Latest News And Other Interesting
+              Events!
+            </h2>
 
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-8">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="flex-1 px-6 py-3 bg-white rounded-full text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              />
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Footer Section */}
-      <div className="bg-gray-100 px-4 py-12 pt-[200px]">
+      <div className="bg-gray-100 px-4 py-12 pt-[50px]">
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">

@@ -28,7 +28,7 @@ const articles = [
 
 export default function ArticlesSection() {
   return (
-    <section className="py-12 px-6 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+    <section className="py-12 px-6 sm:px-6 lg:px-8 max-w-7xl my-9 mx-auto bg-gray-50">
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-[#0B0C58]">
@@ -62,7 +62,7 @@ export default function ArticlesSection() {
 
             {/* Article Info */}
             <div className="p-6">
-              <h3 className="font-bold text-lg text-gray-900 leading-tight hover:text-blue-600 transition-colors">
+              <h3 className="font-bold text-lg text-gray-900 leading-tight hover:text-[#0b0c58] transition-colors">
                 {article.title}
               </h3>
             </div>

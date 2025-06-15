@@ -10,7 +10,7 @@ const OurServices = () => {
     <section className="py-16 px-6 sm:px-10 lg:px-20 bg-white mt-20">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
         {/* Left Text Section */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 sticky top-44 self-start">
           <button className="about-btn mb-4 px-6"> Our Services </button>
 
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0B0C58] mt-2 mb-4">

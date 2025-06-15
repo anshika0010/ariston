@@ -8,11 +8,11 @@ const WhatWeDo = () => {
   return (
     <section className="py-16 px-6 sm:px-10 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
-        {/* Left Text Section */}
-        <div className="lg:w-1/2">
-          <button className="about-btn mb-4 px-6"> Books </button>
+        {/* Left Text Section - Sticky */}
+        <div className="lg:w-1/2 sticky top-44 self-start">
+          <button className="about-btn mb-4 px-6 text-white"> Books </button>
 
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B0C58] mt-2 mb-4">
+          <h2 className="text-5xl sm:text-5xl font-bold text-[#0B0C58] mt-2 mb-4">
             What We Do
           </h2>
           <p className="text-gray-600 mb-6">

@@ -22,7 +22,8 @@ const IndividualJournalPage = () => {
       </div>
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Left Sidebar */}
-        <div className="w-full lg:w-1/4 ">
+
+        <div className="w-full lg:w-1/4 sticky self-start top-6 ">
           <JournalSidebar />
         </div>
 
@@ -41,13 +42,13 @@ const IndividualJournalPage = () => {
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-full lg:w-1/4 text- bg-gray-200  ">
-          <ul className="space-y-0 divide-y divide-white/20 bg-[#413d84]">
+        <div className="w-full lg:w-1/4 text-white  bg-gray-200  sticky self-start top-6 rounded-lg">
+          <ul className="space-y-0 divide-y divide-white/20 bg-[#57538c] rounded-lg ">
             {["SUBMIT MANUSCRIPT", "BE A REVIEWER", "JOIN EDITORAIL BOARD"].map(
               (item, index) => (
                 <li
                   key={index}
-                  className="px-4 py-3 text-sm hover:bg-[#4a4780] cursor-pointer"
+                  className="px-4 py-3 text-sm hover:bg-[#4a4780] cursor-pointer "
                 >
                   {item}
                 </li>

@@ -12,7 +12,7 @@ export default function AboutPage() {
         <nav className="text-gray-600">
           <span>Home</span>
           <span className="mx-2">/</span>
-          <span className="text-gray-900 font-medium">About</span>
+          <span className="text-gray-900  font-medium">About</span>
         </nav>
       </div>
 

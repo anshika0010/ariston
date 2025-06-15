@@ -1,79 +1,111 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import image6 from "../images/Image6.png";
 import image5 from "../images/Image5.jpg";
 import image4 from "../images/Image4.jpg";
+
 export default function BehindStorySection() {
+  const [activeTab, setActiveTab] = useState("story");
+
+  const tabContent = {
+    story: (
+      <>
+        <p className="text-gray-600 text-base sm:text-md leading-relaxed">
+          Ariston Publications is a dynamic and forward-thinking publisher
+          committed to producing high-quality, impactful works across a broad
+          spectrum of disciplines. Our portfolio includes an extensive range of
+          literary genres—fiction, non-fiction, poetry, and drama—as well as
+          scholarly works spanning the humanities, social sciences, natural
+          sciences, and applied sciences.
+        </p>
+        <blockquote className="text-[#0B0C58] text-lg sm:text-xl font-semibold leading-relaxed">
+          "Our mission is to be a beacon of intellectual exploration and
+          creative expression."
+        </blockquote>
+      </>
+    ),
+    mission: (
+      <p className="text-gray-600 text-base sm:text-md leading-relaxed">
+        Our mission is to empower voices, foster critical thinking, and support
+        scholarship through thoughtful and impactful publishing. We aim to serve
+        communities of readers, thinkers, and educators by providing access to
+        diverse perspectives that elevate public understanding and cultural
+        dialogue.
+      </p>
+    ),
+    values: (
+      <ul className="list-disc pl-5 text-gray-600 text-base sm:text-md leading-relaxed space-y-2">
+        <li>Integrity in publishing and content curation</li>
+        <li>Commitment to diversity, equity, and inclusion</li>
+        <li>Support for authors and the creative process</li>
+        <li>Advocacy for education and knowledge-sharing</li>
+        <li>Environmental and social responsibility</li>
+      </ul>
+    ),
+  };
+
   return (
     <section className="bg-white py-16 px-6 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 ">
-          <div className="flex flex-col lg:flex-row gap-6">
-            {/* Left Image */}
-            <div className="flex-1 rounded-2xl overflow-hidden shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+          {/* Left Images */}
+          {/* Left Images - Fixed height on large screens */}
+          <div className="flex flex-col lg:flex-row gap-6 lg:h-[500px]">
+            <div className="flex-1 rounded-2xl overflow-hidden shadow-lg h-full">
               <Image
                 src={image4}
                 alt="Older gentleman with glasses reading a book in library"
                 width={600}
                 height={400}
-                className="w-full h-full  object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Right Image */}
-            <div className="flex-1 rounded-2xl overflow-hidden shadow-lg">
+            <div className="flex-1 rounded-2xl overflow-hidden shadow-lg h-full">
               <Image
                 src={image5}
                 alt="Young man working with books in library"
                 width={600}
                 height={400}
-                className="w-full h-full  object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
 
-          {/* Right side - Content */}
+          {/* Right Content */}
           <div className="space-y-8">
-            {/* Header */}
             <div>
-              <button className="about-btn mb-4 px-6">
-                {" "}
-                Behind The Story{" "}
+              <button className="about-btn mb-4 text-white  px-6">
+                Behind The Story
               </button>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B0C58] leading-tight">
                 Welcome To Ariston Publications
               </h2>
             </div>
 
-            {/* Navigation Tabs */}
+            {/* Tabs */}
             <div className="flex space-x-8 border-b border-gray-200">
-              <button className="pb-3 text-black font-medium border-b-2 border-blue-600">
-                Our Story
-              </button>
-              <button className="pb-3 text-black hover:text-gray-900 transition-colors">
-                Mission
-              </button>
-              <button className="pb-3 text-black hover:text-gray-900 transition-colors">
-                Values
-              </button>
+              {["story", "mission", "values"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`pb-3 text-black transition-colors font-medium ${
+                    activeTab === tab
+                      ? "border-b-2 border-blue-600 text-blue-700"
+                      : "hover:text-gray-900"
+                  }`}
+                >
+                  {tab === "story"
+                    ? "Our Story"
+                    : tab === "mission"
+                    ? "Mission"
+                    : "Values"}
+                </button>
+              ))}
             </div>
 
-            {/* Description Text */}
-            <div className="space-y-4">
-              <p className="text-gray-600 text-base sm:text-md leading-relaxed">
-                Ariston Publications is a dynamic and forward-thinking publisher
-                committed to producing high-quality, impactful works across a
-                broad spectrum of disciplines. Our portfolio includes an
-                extensive range of literary genres—fiction, non-fiction, poetry,
-                and drama—as well as scholarly works spanning the humanities,
-                social sciences, natural sciences, and applied sciences.
-              </p>
-
-              {/* Mission Quote */}
-              <blockquote className="text-[#0B0C58] text-lg sm:text-xl font-semibold leading-relaxed">
-                "Our mission is to be a beacon of intellectual exploration and
-                creative expression."
-              </blockquote>
-            </div>
+            {/* Tab Content */}
+            <div className="space-y-4">{tabContent[activeTab]}</div>
 
             {/* Founder Section */}
             <div className="flex items-center justify-between pt-8">

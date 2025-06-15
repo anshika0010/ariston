@@ -53,11 +53,14 @@ const authors = [
 
 const AboutAuthors = () => {
   return (
-    <div className="bg-gray-100 px-6">
+    <div className="bg-gray-100 px-6 mb-6">
       <section className="header-section mt-16 py-6 grid grid-cols-1 md:grid-cols-2 container mx-auto px-6 md:px-6 relative">
         {/* Content */}
         <div className="md:col-span-2 w-full text-center">
-          <button className="about-btn mb-4 px-6"> Our Authors </button>
+          <button className="about-btn mb-4 px-6 text-white">
+            {" "}
+            Our Authors{" "}
+          </button>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0B0C58] mt-2 mb-12">
             About Authors
           </h2>

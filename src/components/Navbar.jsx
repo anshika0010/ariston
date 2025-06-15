@@ -1,4 +1,4 @@
-"use client"; // Required for client-side interactivity (e.g., useState)
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,49 +6,21 @@ import { useState, useRef, useEffect } from "react";
 import logo from "../images/logo.png";
 import { IoIosSearch } from "react-icons/io";
 import { RiShoppingCartLine } from "react-icons/ri";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [togglemenu, setToggleMenu] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isAtTop, setIsAtTop] = useState(true);
-
-  const toggleDropdown = () => {
-    setToggleMenu(!togglemenu);
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [journalsDropdownOpen, setJournalsDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null);
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setToggleMenu(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY < 10) {
-        setIsAtTop(true);
-        setIsVisible(true);
-      } else {
-        setIsAtTop(false);
-        setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
-      }
-
+      setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
       setLastScrollY(currentScrollY);
     };
 
@@ -56,36 +28,44 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setAboutDropdownOpen(false);
+        setJournalsDropdownOpen(false);
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <>
-      {/* <marquee behavior="smooth" direction="left" className="text-sm py-1 text-gray-600 btn-green text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo molestiae blanditiis voluptatibus tempore excepturi corporis non eum commodi praesentium. Expedita assumenda consequuntur, numquam voluptatem labore dolorem corrupti unde explicabo deserunt.</marquee> */}
       <nav
-        className={`fixed top-0 left-0 w-screen z-50 transition-all duration-300 bg-white/80 backdrop-blur-sm
-      ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      bg-white shadow-md`}
+        className={`fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur shadow-md transition-transform duration-300 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
-        <div className="container px-2 md:px-6 mx-auto">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Link href="/" className="">
-                <Image src={logo} className="logo-img" alt="logo" />
-              </Link>
-            </div>
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <Link href="/">
+              <Image src={logo} alt="logo" className="w-[200px] h-auto" />{" "}
+            </Link>
 
             {/* Mobile Menu Button */}
-            <div className="flex flex-shrink-0  items-center md:hidden">
+            <div className="md:hidden">
               <button
-                onClick={toggleMenu}
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-600"
               >
                 <svg
                   className="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
+                  viewBox="0 0 24 24"
                 >
                   <path
                     strokeLinecap="round"
@@ -98,147 +78,161 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex md:space-x-8 md:items-center">
-              <Link href="/" className="text-sm text-gray-600 nav-link">
+            <div
+              className="hidden md:flex items-center space-x-6"
+              ref={dropdownRef}
+            >
+              <Link href="/" className="nav-link text-sm text-gray-600">
                 Home
               </Link>
-              <Link href="/about-us" className="text-sm text-gray-600 nav-link">
-                About Us
-              </Link>
-              <Link href="/journals" className="text-sm text-gray-600 nav-link">
-                Journals
-              </Link>
 
-              <Link href="/books" className="text-sm text-gray-600 nav-link">
+              {/* About Dropdown */}
+              <div className="relative group">
+                <div className="flex items-center space-x-1 cursor-pointer">
+                  <span className="nav-link text-sm text-gray-600">About</span>
+                  <MdKeyboardArrowDown />
+                </div>
+                <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-md rounded  py-2 w-48 z-50">
+                  <Link
+                    href="/about-us"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/about-us/team"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Our Author
+                  </Link>
+                  <Link
+                    href="/about-us/team"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Our Editor
+                  </Link>
+                  <Link
+                    href="/about-us/team"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Our Reviewer
+                  </Link>
+                </div>
+              </div>
+
+              {/* Journals Dropdown */}
+              <div className="relative group">
+                <div className="flex items-center space-x-1 cursor-pointer">
+                  <span className="nav-link text-sm text-gray-600">
+                    Journals
+                  </span>
+                  <MdKeyboardArrowDown />
+                </div>
+                <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-md rounded  py-2 w-48 z-50">
+                  <Link
+                    href="/journals"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    All Journal
+                  </Link>
+                  <Link
+                    href="/journals"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Science Journal
+                  </Link>
+                  <Link
+                    href="/journals/arts"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Arts Journal
+                  </Link>
+                </div>
+              </div>
+
+              <Link href="/books" className="nav-link text-sm text-gray-600">
                 Books
               </Link>
               <Link
-                href="news-and-events"
-                className="text-sm text-gray-600 nav-link"
+                href="/news-and-events"
+                className="nav-link text-sm text-gray-600"
               >
                 News and Events
               </Link>
-              <Link href="services" className="text-sm text-gray-600 nav-link">
-                Our Services
+              <Link
+                href="/contact-us"
+                className="nav-link text-sm text-gray-600"
+              >
+                Contact Us
               </Link>
             </div>
 
-            <div className="hidden md:flex gap-4 items-center">
-              <div className="flex gap-2">
-                <Link
-                  href="/our-impact"
-                  className="text-gray-600 p-2 hover:bg-gray-100"
-                >
-                  <IoIosSearch className="font-bold text-lg" />
-                </Link>
-                <Link
-                  href="/our-impact"
-                  className="text-gray-600 hover:bg-gray-100 p-2 rounded cart"
-                >
-                  <span>2</span>
-                  <RiShoppingCartLine className="font-bold text-lg" />
-                </Link>
-              </div>
-              <div>
-                <Link href={"/contact-us"}>
-                  {" "}
-                  <button className="bg-[#0401A5] text-white px-3 py-2 rounded-3xl">
-                    Contact Us
-                  </button>
-                </Link>
-              </div>{" "}
+            {/* Right Icons */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Link
+                href="/search"
+                className="text-gray-600 p-2 hover:bg-gray-100 rounded-full"
+              >
+                <IoIosSearch className="text-xl" />
+              </Link>
+              <Link
+                href="/cart"
+                className="text-gray-600 p-2 hover:bg-gray-100 rounded-full relative"
+              >
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                  2
+                </span>
+                <RiShoppingCartLine className="text-xl" />
+              </Link>
+              {/* Login Dropdown */}
               <div className="relative group">
-                {/* Dropdown Button */}
-                <button className="text-sm text-gray-600 inline-flex items-center btn-trans rounded shadow">
-                  <span>Login</span>
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                <button className="flex items-center text-sm text-gray-600">
+                  Login
+                  <MdKeyboardArrowDown className="ml-1" />
                 </button>
-
-                {/* Dropdown Menu */}
-                <div className="z-2 absolute right-0 mt-2 w-45 rounded-md shadow-lg bg-white ring-1 ring-zinc-200 ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                  <div className="py-1">
-                    <Link
-                      href={"/block_url"}
-                      className="block px-4 py-2 text-sm text-gray-600 border-b border-zinc-200 nav-link"
-                    >
-                      Block Coordinator
-                    </Link>
-                    <Link
-                      href={"/block_url"}
-                      className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                    >
-                      District Coordinator
-                    </Link>
-                    <Link
-                      href={"/block_url"}
-                      className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                    >
-                      Division Coordinator
-                    </Link>
-                    <Link
-                      href={"/block_url"}
-                      className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                    >
-                      State Coordinator
-                    </Link>
-                    <Link
-                      href={"/block_url"}
-                      className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                    >
-                      Lab
-                    </Link>
-                    <Link
-                      href={"/block_url"}
-                      className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                    >
-                      Director
-                    </Link>
-                  </div>
+                <div className="absolute right-0  w-40 bg-white shadow-lg rounded-md hidden group-hover:block z-50">
+                  <Link
+                    href="/authors"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Authors
+                  </Link>
+                  <Link
+                    href="/reviewers"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Reviewers
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Overlay */}
         <div
-          className={`fixed top-0 z-[-1] left-0 w-full h-[110vh] bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out z-40 ${
+          className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
             isOpen ? "opacity-60 visible" : "opacity-0 invisible"
           }`}
-          onClick={toggleMenu}
+          onClick={() => setIsOpen(false)}
         ></div>
+
+        {/* Mobile Menu */}
         <div
-          className={`fixed z-2 top-0 w-64 bg-white h-[110vh] shadow-lg transition-all duration-300 ease-in-out ${
-            isOpen ? "left-[-0%]" : "left-[-100%]"
+          className={`fixed top-0 left-0 z-50 w-64 h-screen bg-white shadow-md transform transition-transform duration-300 ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="px-4 pt-3 pb-3 bg-white flex justify-between border-b border-zinc-400">
-            <Link href="/" className="text-xl font-bold text-gray-800">
-              <Image src={logo} className="w-[40px] h-[auto]" alt="logo" />
+          <div className="flex justify-between items-center px-4 py-3 border-b border-zinc-300">
+            <Link href="/">
+              <Image src={logo} alt="logo" className="w-[40px]" />
             </Link>
-            <button
-              onClick={toggleMenu}
-              className="text-gray-800 hover:text-gray-600"
-            >
+            <button onClick={() => setIsOpen(false)} className="text-gray-600">
               <svg
                 className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                viewBox="0 0 24 24"
                 stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
                   strokeLinecap="round"
@@ -249,120 +243,93 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="pb-3 space-y-1 bg-white flex flex-col">
-            <Link
-              href="/"
-              className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link"
-            >
+
+          <div className="flex flex-col space-y-1 py-2 px-2">
+            <Link href="/" className="px-4 py-2 text-sm text-gray-700 border-b">
               Home
             </Link>
+
+            {/* Mobile About Dropdown */}
+            <div>
+              <button
+                onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                className="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-gray-700 border-b"
+              >
+                About <MdKeyboardArrowDown />
+              </button>
+              {aboutDropdownOpen && (
+                <div className="ml-4">
+                  <Link
+                    href="/about-us/vision"
+                    className="block px-4 py-2 text-sm text-gray-600"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/about-us/team"
+                    className="block px-4 py-2 text-sm text-gray-600"
+                  >
+                    About Author
+                  </Link>
+                  <Link
+                    href="/about-us/team"
+                    className="block px-4 py-2 text-sm text-gray-600"
+                  >
+                    About Editor
+                  </Link>
+                  <Link
+                    href="/about-us/team"
+                    className="block px-4 py-2 text-sm text-gray-600"
+                  >
+                    About Reviewer
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Journals Dropdown */}
+            <div>
+              <button
+                onClick={() => setJournalsDropdownOpen(!journalsDropdownOpen)}
+                className="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-gray-700 border-b"
+              >
+                Journals <MdKeyboardArrowDown />
+              </button>
+              {journalsDropdownOpen && (
+                <div className="ml-4">
+                  <Link
+                    href="/journals/science"
+                    className="block px-4 py-2 text-sm text-gray-600"
+                  >
+                    Science
+                  </Link>
+                  <Link
+                    href="/journals/arts"
+                    className="block px-4 py-2 text-sm text-gray-600"
+                  >
+                    Arts
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link
-              href="/about-us"
-              className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link"
+              href="/books"
+              className="px-4 py-2 text-sm text-gray-700 border-b"
             >
-              About Us
+              Books
             </Link>
             <Link
-              href="/labs"
-              className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link"
+              href="/news-and-events"
+              className="px-4 py-2 text-sm text-gray-700 border-b"
             >
-              Lab's
-            </Link>
-            {/* <Link href="/services" className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link">
-              Members
-            </Link> */}
-            <Link
-              href="/gallery"
-              className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link"
-            >
-              Gallery
+              News and Events
             </Link>
             <Link
               href="/contact-us"
-              className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link"
+              className="px-4 py-2 text-sm text-gray-700 border-b"
             >
               Contact Us
-            </Link>
-            <Link
-              href="/our-impact"
-              className="text-sm border-b border-zinc-200 py-2 px-4 text-gray-600 nav-link"
-            >
-              Our Impact
-            </Link>
-            <div className="relative group">
-              {/* Dropdown Button */}
-              <button
-                onClick={toggleDropdown}
-                className="text-sm px-4 text-gray-600 nav-link inline-flex items-center"
-              >
-                <span>Login</span>
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {/* Dropdown Menu */}
-              <div
-                className={`overflow-hidden mt-2 shadow-lg bg-white transition-animation ${
-                  togglemenu ? "h-[fit-content]" : "h-[0px]"
-                } `}
-              >
-                <div className="py-1">
-                  <Link
-                    href={"/block_url"}
-                    className="block px-4 py-2 text-sm text-gray-600 border-b border-zinc-200 nav-link"
-                  >
-                    Block Coordinator
-                  </Link>
-                  <Link
-                    href={"/block_url"}
-                    className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                  >
-                    District Coordinator
-                  </Link>
-                  <Link
-                    href={"/block_url"}
-                    className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                  >
-                    Division Coordinator
-                  </Link>
-                  <Link
-                    href={"/block_url"}
-                    className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                  >
-                    State Coordinator
-                  </Link>
-                  <Link
-                    href={"/block_url"}
-                    className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                  >
-                    Lab
-                  </Link>
-                  <Link
-                    href={"/block_url"}
-                    className="block px-4 py-2 text-sm text-gray-600 nav-link"
-                  >
-                    Director
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <Link
-              href={"/banificiary/login"}
-              className="btn btn-orange shadow-lg mx-4 text-center"
-            >
-              Banificiary
             </Link>
           </div>
         </div>
