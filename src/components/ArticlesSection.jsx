@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Calendar } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react"; // Import arrow icon
 import ArticleImage from "../images/ArticleImage.png";
 import Link from "next/link";
 
@@ -50,12 +50,21 @@ export default function ArticlesSection() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                {/* Date Badge */}
-                <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1 flex items-center gap-1 shadow-md">
+
+                {/* Date Badge (default) */}
+                <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1 flex items-center gap-1 shadow-md transition-all duration-300 opacity-100 group-hover:opacity-0">
                   <Calendar className="w-4 h-4 text-gray-600" />
                   <span className="text-sm font-medium text-gray-700">
                     {article.date}
                   </span>
+                </div>
+
+                {/* Read Article (on hover) */}
+                <div className="absolute top-4 left-4 bg-blue-600 rounded-full px-3 py-1 flex items-center gap-1 shadow-md transition-all duration-300 opacity-0 group-hover:opacity-100">
+                  <span className="text-sm font-medium text-[#0b0c58]">
+                    Read Article
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-[#0b0c58]" />
                 </div>
               </div>
 

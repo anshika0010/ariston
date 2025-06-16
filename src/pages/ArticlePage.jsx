@@ -8,7 +8,7 @@ const ArticlePage = () => {
     <div className="p-6 mt-8">
       <div className="flex flex-col md:flex-row items-start md:items-center bg-gray-100 rounded-md overflow-hidden mx-20 my-8">
         {/* Journal Cover Image */}
-        <div className="w-full md:w-40 flex-shrink-0">
+        <div className="w-20 md:w-20 flex-shrink-1">
           <Image
             src={Image1}
             alt="Journal Cover"
@@ -24,17 +24,24 @@ const ArticlePage = () => {
           <h1 className="text-xl md:text-2xl font-bold text-[#0a0a50]">
             CompSci & AI Advances
           </h1>
-          <div className="bg-[#0a0a50] text-white text-sm mt-3 px-3 py-1 w-fit rounded">
+          <div className="bg-[#0a0a50] text-white text-sm mt-3 px-3 py-1 w-full rounded">
             Volume 1, Issue 4 (December 2024)
           </div>
         </div>
       </div>
-      <div>
-        <h1 className="text-2xl font-bold mb-4 text-[#0B0C58] flex items-center justify-center px-24 ">
+      <div className="flex items-center justify-between px-6 sm:px-12 lg:px-24 mb-6 flex-wrap gap-4">
+        {/* Heading */}
+        <h1 className="text-2xl font-bold text-[#0B0C58] text-left max-w-3xl">
           Integrating IoT and AI for Advanced Predictive Maintenance:
           Innovations in Condition Monitoring Systems using MOORA method
         </h1>
+
+        {/* Download Button (Right Side) */}
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-2xl whitespace-nowrap">
+          Download PDF
+        </button>
       </div>
+
       <div className="flex w-full min-h-screen">
         <div className="w-3/4 bg-white p-6">
           {/* <h2 className="text-xl font-bold mb-4">Main Content</h2>
