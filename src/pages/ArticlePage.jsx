@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const ArticlePage = () => {
   return (
-    <div className="p-6 mt-8">
-      <div className="flex flex-col md:flex-row items-start md:items-center bg-gray-100 rounded-md overflow-hidden mx-20 my-8">
+    <div className="p-6 mt-11 max-w-6xl mx-auto">
+      <div className="flex flex-col md:flex-row items-start md:items-center bg-gray-100 rounded-md overflow-hidden ">
         {/* Journal Cover Image */}
         <div className="w-20 md:w-20 flex-shrink-1">
           <Image
@@ -29,9 +29,9 @@ const ArticlePage = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between px-6 sm:px-12 lg:px-24 mb-6 flex-wrap gap-4">
+      <div className="flex items-center justify-between  my-6 flex-wrap gap-4">
         {/* Heading */}
-        <h1 className="text-2xl font-bold text-[#0B0C58] text-left max-w-3xl">
+        <h1 className="text-2xl font-bold text-[#0B0C58] text-left max-w-4xl">
           Integrating IoT and AI for Advanced Predictive Maintenance:
           Innovations in Condition Monitoring Systems using MOORA method
         </h1>
@@ -43,7 +43,7 @@ const ArticlePage = () => {
       </div>
 
       <div className="flex w-full min-h-screen">
-        <div className="w-3/4 bg-white p-6">
+        <div className="w-3/4 bg-white ">
           {/* <h2 className="text-xl font-bold mb-4">Main Content</h2>
           <p>This is your main content area.</p> */}
           <Articlerightside />
@@ -77,7 +77,7 @@ const ArticlePage = () => {
             <span className="font-semibold">DOI:</span>{" "}
             <a
               href="https://doi.org/10.69626/cai.2024.0201"
-              className="text-blue-600 underline text-sm"
+              className="text-blue-600 underline text-xs"
             >
               https://doi.org/10.69626/cai.2024.0201
             </a>
@@ -113,7 +113,7 @@ const ArticlePage = () => {
 
           <div className="mt-4">
             <p className="font-semibold">Cite this article:</p>
-            <p className="text-gray-700 text-sm">
+            <p className="text-gray-700 text-xs">
               Bin-Habtoor, A. S. Y. and Fatima, K. 2024. Integrating IoT and AI
               for Advanced Predictive Maintenance: Innovations in Condition
               Monitoring Systems using MOORA method. CompSci & AI Advances 1(4),

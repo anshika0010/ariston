@@ -53,10 +53,10 @@ export default function Footer() {
         </div>
       </div> */}
       <div
-        className=" px-4 py-4 md:py-10  object-cover "
+        className=" px-4 py-4 md:py-10  object-cover bg-no-repeat h-full w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${Image2.src})` }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-xl md:text-xl lg:text-xl font-bold text-white mb-6 lg:mb-8 leading-tight mx-10">
               Subscribe To Get Information, Latest News And Other Interesting
@@ -78,7 +78,7 @@ export default function Footer() {
       </div>
       {/* Footer Section */}
       <div className="bg-gray-100 px-4 py-12 pt-[50px]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             {/* Logo and Social Media */}
@@ -232,7 +232,7 @@ export default function Footer() {
 
           {/* Bottom Footer */}
           <div className="border-t border-gray-400 pt-5">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-16">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-4 ">
               <div className="flex flex-col sm:flex-row gap-4 text-sm text-black">
                 <a href="#" className="hover:text-gray-800 transition-colors">
                   Terms and Conditions
