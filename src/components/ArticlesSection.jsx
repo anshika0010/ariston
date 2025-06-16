@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Calendar } from "lucide-react";
 import ArticleImage from "../images/ArticleImage.png";
+import Link from "next/link";
 
 const articles = [
   {
@@ -39,34 +40,33 @@ export default function ArticlesSection() {
       {/* Articles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((article) => (
-          <div
-            key={article.id}
-            className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer"
-          >
-            {/* Article Image */}
-            <div className="relative h-48 sm:h-56 overflow-hidden">
-              <Image
-                src={article.image || "/placeholder.svg"}
-                alt={article.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              {/* Date Badge */}
-              <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1 flex items-center gap-1 shadow-md">
-                <Calendar className="w-4 h-4 text-gray-600" />
-                <span className="text-sm font-medium text-gray-700">
-                  {article.date}
-                </span>
+          <Link href="/article" key={article.id}>
+            <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer">
+              {/* Article Image */}
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <Image
+                  src={article.image || "/placeholder.svg"}
+                  alt={article.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                {/* Date Badge */}
+                <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1 flex items-center gap-1 shadow-md">
+                  <Calendar className="w-4 h-4 text-gray-600" />
+                  <span className="text-sm font-medium text-gray-700">
+                    {article.date}
+                  </span>
+                </div>
+              </div>
+
+              {/* Article Info */}
+              <div className="p-6">
+                <h3 className="font-bold text-lg text-gray-900 leading-tight hover:text-[#0b0c58] transition-colors">
+                  {article.title}
+                </h3>
               </div>
             </div>
-
-            {/* Article Info */}
-            <div className="p-6">
-              <h3 className="font-bold text-lg text-gray-900 leading-tight hover:text-[#0b0c58] transition-colors">
-                {article.title}
-              </h3>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

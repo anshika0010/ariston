@@ -186,10 +186,18 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/contact-us"
                     className="text-black hover:text-gray-800 transition-colors"
                   >
                     Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/services"
+                    className="text-black hover:text-gray-800 transition-colors"
+                  >
+                    Our Services
                   </a>
                 </li>
               </ul>

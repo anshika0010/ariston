@@ -69,49 +69,7 @@ export default function Loading() {
           <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
             <div className="h-full bg-gradient-to-r from-[#0b0c58] to-[#0b0c58]/70 rounded-full animate-pulse"></div>
           </div>
-          <p className="text-sm text-gray-500 mt-2">Loading content...</p>
-        </div>
-
-        {/* Animated Progress Steps */}
-        <div className="space-y-3 text-left max-w-xs mx-auto">
-          <div className="flex items-center space-x-3">
-            <div className="w-4 h-4 bg-[#0b0c58] rounded-full animate-pulse"></div>
-            <span className="text-sm text-gray-600">Fetching books...</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <div
-              className="w-4 h-4 bg-[#0b0c58]/60 rounded-full animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            ></div>
-            <span className="text-sm text-gray-600">Loading categories...</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <div
-              className="w-4 h-4 bg-[#0b0c58]/40 rounded-full animate-pulse"
-              style={{ animationDelay: "1s" }}
-            ></div>
-            <span className="text-sm text-gray-600">
-              Preparing recommendations...
-            </span>
-          </div>
-        </div>
-
-        {/* Spinning Book Stack */}
-        <div className="mt-12 flex justify-center">
-          <div className="relative">
-            <div
-              className="w-16 h-2 bg-[#0b0c58]/20 rounded-full animate-spin"
-              style={{ animationDuration: "3s" }}
-            ></div>
-            <div
-              className="absolute top-0 left-2 w-12 h-2 bg-[#0b0c58]/40 rounded-full animate-spin"
-              style={{ animationDuration: "2s", animationDirection: "reverse" }}
-            ></div>
-            <div
-              className="absolute top-0 left-4 w-8 h-2 bg-[#0b0c58]/60 rounded-full animate-spin"
-              style={{ animationDuration: "1.5s" }}
-            ></div>
-          </div>
+          <p className="text-lg text-gray-500 mt-6">Loading content...</p>
         </div>
       </div>
 
