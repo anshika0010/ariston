@@ -26,6 +26,6 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/TypeWritterHeading.tsx"
-  ],
+, "src/app/Custom404.jsx"  ],
   "exclude": ["node_modules"]
 }

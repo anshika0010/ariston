@@ -88,7 +88,7 @@ export default function BooksSection() {
       case "md":
         return 3;
       case "sm":
-        return 2;
+        return 1;
       default:
         return 4;
     }
@@ -166,7 +166,7 @@ export default function BooksSection() {
 
         <div className="overflow-hidden">
           <div
-            className={`grid ${getGridClasses()} gap-5 transition-all duration-500 ease-in-out`}
+            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 transition-all duration-500 ease-in-out`}
           >
             {getVisibleBooks().map((book, index) => (
               <div
@@ -176,7 +176,7 @@ export default function BooksSection() {
                 <div className="max-w-xs bg-white rounded-2xl shadow-md p-4 space-y-4 relative h-[460px] flex flex-col justify-between">
                   <div className="relative flex justify-center w-full overflow-hidden">
                     <Image
-                      src={book.image || "/placeholder.svg"}
+                      src={book.image || "image"}
                       alt={book.title}
                       width={200}
                       height={280}

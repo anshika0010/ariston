@@ -69,7 +69,7 @@ const Home = () => {
             foster collaboration, and expand the boundaries of human
             understanding.
           </p>
-          <div className="mt-9">
+          <div className="mt-9 mb-[30px]">
             <Link
               href={"/about-us"}
               className="btn text-[#0b0c58] text-bold shadow"
